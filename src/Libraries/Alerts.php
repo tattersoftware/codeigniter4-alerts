@@ -37,7 +37,7 @@ class Alerts {
 		
 		// class-wide settings
 		$this->prefix = $config->prefix ?? "alerts-";
-		$this->view = $config->view ?? "Tatter\Alerts\Views\bootstrap";
+		$this->view = $config->view ?? "Tatter\bootstrap";
 	}
 	
 	// add a new alert to the queue
@@ -85,6 +85,6 @@ class Alerts {
 	// outputs default CSS as inline style sheet
 	// should be called in <head>
 	public function css() {
-		echo view("Tatter\Alerts\Views\css", ['prefix' => $this->prefix]);
+		echo view("Tatter\css", ['prefix' => $this->prefix]);
 	}	
 }

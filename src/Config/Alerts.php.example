@@ -25,5 +25,5 @@ class Alerts extends BaseConfig
 		Bootstrap (default) - [https://getbootstrap.com/docs/4.0/components/alerts/#dismissing]
 		Foundation - [https://foundation.zurb.com/sites/docs/callout.html#making-closable]
 */
-	public $view = "Tatter\Alerts\Views\bootstrap";
+	public $view = "Tatter\bootstrap";
 }

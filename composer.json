@@ -6,7 +6,7 @@
 		"codeigniter4",
 		"alerts",
 		"dialogs",
-		"messages",
+		"messages"
 	],
 	"homepage": "https://github.com/tattersoftware/codeigniter4-alerts",
 	"license": "MIT",

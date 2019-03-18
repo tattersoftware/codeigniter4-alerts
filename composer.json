@@ -1,0 +1,37 @@
+{
+	"name": "tatter/alerts",
+	"description": "Lightweight user alerts for CodeIgniter 4",
+	"keywords": [
+		"codeigniter",
+		"codeigniter4",
+		"alerts",
+		"dialogs",
+		"messages",
+	],
+	"homepage": "https://github.com/tattersoftware/codeigniter4-alerts",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Matthew Gatner",
+			"email": "mgatner@tattersoftware.com",
+			"homepage": "https://tattersoftware.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php" : "^7.0"
+	},
+	"require-dev": {
+		"codeigniter4/framework": "dev-master"
+	},
+	"autoload": {
+		"psr-4": {
+			"Tatter\\": "src"
+		}
+	},
+	"scripts": {
+		"post-update-cmd": [
+			"composer dump-autoload"
+		]
+	}
+}

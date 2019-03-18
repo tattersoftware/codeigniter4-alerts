@@ -1,6 +1,8 @@
 # Tatter\Alerts
 Lightweight user alerts for CodeIgniter 4
 
+[[https://github.com/tattersoftware/codeigniter4-alerts/blob/master/img/screenshot1.png|alt=screenshot]]
+
 ## Quick Start
 
 1. Run: `> composer require tatter/alerts`

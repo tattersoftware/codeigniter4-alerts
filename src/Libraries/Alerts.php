@@ -22,22 +22,36 @@
 *
 ***/
 
+use CodeIgniter\Config\Services;
+
 /*** CLASS ***/
 class Alerts {
 
 	// prefix to add to SESSION variables and HTML elements, to prevent collision
 	// can be override with Config
-	private $prefix;
+	protected $prefix;
+	
+	// view engine to render the output with
+	protected $view;
+	
+	// view template to format the output
+	protected $template;
 
 	// initiate library, check for existing session
-	public function __construct() {
+	public function __construct($config = null, RendererInterface $view = null) {
 	
 		// load optional configuration
-		$config = config('Alerts', false);
+		$config = $config ?? config('Alerts', false);
+		
+		// verify renderer
+		if ($view instanceof RendererInterface)
+			$this->view = $view;
+		else
+			$this->view = Services::renderer();
 		
 		// class-wide settings
 		$this->prefix = $config->prefix ?? "alerts-";
-		$this->view = $config->view ?? "Tatter\bootstrap";
+		$this->template = $config->template ?? "Tatter\bootstrap";
 	}
 	
 	// add a new alert to the queue
@@ -59,7 +73,7 @@ class Alerts {
 		return;
 	}
 
-	// clears the queue and displays all alerts
+	// clears the queue and returns template formatted alerts
 	public function display() {
 		$session = session();
 	
@@ -72,19 +86,16 @@ class Alerts {
 		if (empty($alerts))
 			return;
 		
-		// load the specified view
-		$data = [
-			'prefix' => $this->prefix,
-			'alerts' => $alerts,
-		];
-		echo view($this->view, $data);
-
-		return;
+		// render the specified view template
+		return $this->view->setVar('prefix', $this->prefix)
+		                  ->setVar('alerts', $alerts)
+		                  ->render($this->template);
 	}
 	
-	// outputs default CSS as inline style sheet
-	// should be called in <head>
+	// returns default CSS as inline style sheet
+	// should be injected into <head>
 	public function css() {
-		echo view("Tatter\css", ['prefix' => $this->prefix]);
+		return $this->view->setVar('prefix', $this->prefix)
+		                  ->render("Tatter\css");
 	}	
 }

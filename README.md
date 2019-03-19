@@ -9,8 +9,8 @@ Lightweight user alerts for CodeIgniter 4
 1. Run: `> composer require tatter/alerts`
 2. Load the helper: `helper("tatter\alerts");`
 2. Set an alert: `alert('success', "You did it!")`
-3. Add in head tag (optional): `alertsCss();`
-4. Add after banner/menu: `alerts();`
+3. Add in head tag (optional): `<?= alertsCss(); ?>`
+4. Add after banner/menu: `<?= alerts(); ?>`
 
 ## Features
 
@@ -38,7 +38,7 @@ If installed correctly CodeIgniter 4 will detect and autoload the library, helpe
 `helper("tatter\alerts");`
 
 Then use the helper function `alert($class, $text)` to set an alert for the user's next
-view. Use helper functions `alertCss()` and `alerts()` to output the styling and HTML
+view. Use helper functions `alertCss()` and `alerts()` to retrieve the styling and HTML
 for the alerts.
 
 ## Styles

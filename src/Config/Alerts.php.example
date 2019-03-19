@@ -18,12 +18,12 @@ class Alerts extends BaseConfig
 	public $prefix = "alerts-";
 
 /*
-	View to use for HTML output
+	Template to use for HTML output
 	Make sure there is a corresponding view file for the path/namespace provided
 	Native support for:
 		Basic - a minimalist layout internal to this library
 		Bootstrap (default) - [https://getbootstrap.com/docs/4.0/components/alerts/#dismissing]
 		Foundation - [https://foundation.zurb.com/sites/docs/callout.html#making-closable]
 */
-	public $view = "Tatter\bootstrap";
+	public $template = "Tatter\bootstrap";
 }

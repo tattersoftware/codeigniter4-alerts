@@ -22,18 +22,18 @@ if (! function_exists('alert'))
 
 if (! function_exists('alertsCss'))
 {
-	// outputs pre-configured CSS as inline style sheet
+	// returns pre-configured CSS as inline style sheet
 	function alertsCss() {
 		$alerts = new Tatter\Libraries\Alerts();
-		$alerts->css();	
+		return $alerts->css();	
 	}
 }
 
 if (! function_exists('alerts'))
 {
-	// outputs all queue alerts and clears the queue
+	// returns all queue alerts and clears the queue
 	function alerts() {
 		$alerts = new Tatter\Libraries\Alerts();
-		$alerts->display();	
+		return $alerts->display();	
 	}
 }

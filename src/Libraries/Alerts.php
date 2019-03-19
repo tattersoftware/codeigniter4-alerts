@@ -38,7 +38,8 @@ class Alerts {
 	protected $template;
 
 	// initiate library, check for existing session
-	public function __construct($config = null, RendererInterface $view = null) {
+	public function __construct($config = null, RendererInterface $view = null)
+	{
 	
 		// load optional configuration
 		$config = $config ?? config('Alerts', false);
@@ -55,7 +56,8 @@ class Alerts {
 	}
 	
 	// add a new alert to the queue
-	public function add($class, $text) {
+	public function add($class, $text)
+	{
 		$session = session();
 		$alert = [
 			'class' => $class,
@@ -74,7 +76,8 @@ class Alerts {
 	}
 
 	// clears the queue and returns template formatted alerts
-	public function display() {
+	public function display()
+	{
 		$session = session();
 	
 		// get any alerts
@@ -94,7 +97,8 @@ class Alerts {
 	
 	// returns default CSS as inline style sheet
 	// should be injected into <head>
-	public function css() {
+	public function css()
+	{
 		return $this->view->setVar('prefix', $this->prefix)
 		                  ->render("Tatter\css");
 	}	

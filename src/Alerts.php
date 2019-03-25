@@ -27,7 +27,8 @@ use CodeIgniter\Config\Services;
 use Tatter\Alerts\Exceptions\AlertsException;
 
 /*** CLASS ***/
-class Alerts {
+class Alerts
+{
 
 	/**
 	 * Our configuration instance.

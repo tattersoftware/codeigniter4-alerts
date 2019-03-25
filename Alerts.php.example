@@ -12,7 +12,7 @@
 
 use CodeIgniter\Config\BaseConfig;
 
-class Alerts extends \Tatter\Alerts\Config
+class Alerts extends \Tatter\Alerts\Config\Assets
 {
 	// prefix for SESSION variables and HTML classes, to prevent collision
 	public $prefix = "alerts-";	

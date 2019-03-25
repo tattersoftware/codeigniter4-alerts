@@ -20,7 +20,7 @@ Provides out-of-the-box user alerts for CodeIgniter 4
 
 Install easily via Composer to take advantage of CodeIgniter 4's autoloading capabilities
 and always be up-to-date:
-`> composer require tatter/alerts`
+* `> composer require tatter/alerts`
 
 Or, install manually by downloading the source files and copying them into CodeIgniter 4's
 app/ same subdirectories.

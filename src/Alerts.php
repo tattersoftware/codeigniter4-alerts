@@ -1,8 +1,8 @@
 <?php namespace Tatter\Alerts;
 
 /***
-* Name: Alerts
-* Author: Matthew Gatner
+* Name:    Alerts
+* Author:  Matthew Gatner
 * Contact: mgatner@tattersoftware.com
 * Created: 2019-02-13
 *
@@ -17,8 +17,8 @@
 * 	Use Config/Alerts.php to override default behavior
 *
 * @package CodeIgniter4-Alerts
-* @author Matthew Gatner
-* @link https://github.com/tattersoftware/codeigniter4-alerts
+* @author  Matthew Gatner
+* @link    https://github.com/tattersoftware/codeigniter4-alerts
 *
 ***/
 
@@ -116,6 +116,6 @@ class Alerts
 	// should be injected into <head>
 	public function css()
 	{
-		return $this->view->setVar('prefix', $this->config->prefix)->render("Tatter\Alerts\Views\css");
+		return $this->view->setVar('prefix', $this->config->prefix)->render('Tatter\Alerts\Views\css');
 	}	
 }

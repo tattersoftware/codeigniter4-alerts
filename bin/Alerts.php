@@ -2,15 +2,13 @@
 
 /***
 *
-* This file contains example values to override or augment default library behavior.
+* This file contains example values to change the default library behavior.
 * Recommended usage:
 *	1. Copy the file to app/Config/Alerts.php
 *	2. Set any override variables
-*	3. Remove any lines to fallback to defaults
+*	3. Remove any lines to fallback to library defaults
 *
 ***/
-
-use CodeIgniter\Config\BaseConfig;
 
 class Alerts extends \Tatter\Alerts\Config\Alerts
 {

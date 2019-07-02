@@ -11,14 +11,10 @@ class Services extends BaseService
 			return static::getSharedInstance('alerts', $config, $view);
 		endif;
 
-		// prioritizes user config in app/Config if found
-		if (empty($config)):
-			if (class_exists('\Config\Alerts')):
-				$config = new \Config\Alerts();
-			else:
-				$config = new \Tatter\Alerts\Config\Alerts();
-			endif;
-		endif;
+		// If no config was injected then load one
+		// Prioritizes app/Config if found
+		if (empty($config))
+			$config = config('Alerts');
 
 		return new \Tatter\Alerts\Alerts($config, $view);
 	}

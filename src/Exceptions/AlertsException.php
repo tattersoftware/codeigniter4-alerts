@@ -7,10 +7,10 @@ class AlertsException extends FrameworkException implements ExceptionInterface
 {
 	public static function forInvalidTemplate(string $template = null)
 	{
-		return new static("'{$template}' is not a valid Alerts template.");
+		return new static(lang('Alerts.invalidTemplate', [$template]));
 	}
 	public static function forMissingTemplateView(string $template = null)
 	{
-		return new static("Could not find template view file: '{$template}'.");
+		return new static(lang('Alerts.missingTemplateView', [$template]));
 	}
 }

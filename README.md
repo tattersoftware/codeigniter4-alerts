@@ -22,20 +22,20 @@ Install easily via Composer to take advantage of CodeIgniter 4's autoloading cap
 and always be up-to-date:
 * `> composer require tatter/alerts`
 
-Or, install manually by downloading the source files and copying them into CodeIgniter 4's
-app/ same subdirectories.
+Or, install manually by downloading the source files and adding the directory to
+`app/Config/Autoload.php`.
 
 ## Configuration (optional)
 
-The library's default behavior can be overridden or augment by its config file. Copy
-src/Config/Alerts.php.example to app/Config/Alerts.php and follow the instructions in the
+The library's default behavior can be changed using its config file. Copy
+bin/Alerts.php to app/Config/Alerts.php and follow the instructions in the
 comments. If no config file is found the library will use its defaults.
 
 ## Usage
 
 If installed correctly CodeIgniter 4 will detect and autoload the library, service, helper,
 and config. Initialize the helper if you want the convenience wrapper function:
-`helper("tatter\alerts");`
+`helper('tatter\alerts');`
 
 Then use the helper function `alert($class, $text)` to set an alert for the user's next
 view. Use class methods `$alerts->css()` and `$alerts->display()` to retrieve the styling

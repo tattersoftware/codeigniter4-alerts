@@ -1,7 +1,7 @@
 # Tatter\Alerts
 Lightweight user alerts for CodeIgniter 4
 
-![Screenshot1](https://github.com/tattersoftware/codeigniter4-alerts/blob/master/img/screenshot1.png)
+![Screenshot](https://github.com/tattersoftware/codeigniter4-alerts/blob/master/img/screenshot2.png)
 
 
 ## Quick Start

@@ -25,6 +25,9 @@ and always be up-to-date:
 Or, install manually by downloading the source files and adding the directory to
 `app/Config/Autoload.php`.
 
+Note: The default display template expects [Bootstrap4](https://getbootstrap.com) but is
+easily changed.
+
 ## Configuration (optional)
 
 The library's default behavior can be changed using its config file. Copy
@@ -43,5 +46,6 @@ and HTML for the alerts.
 
 ## Styles
 
-By default alerts will be displayed with classes for Bootstrap. Styles can be changed
-to other toolkits (or you may use your own) by altering the settings in the config file.
+By default alerts will be displayed with classes for Bootstrap (not included).
+However, styles can be set to use other toolkits (or you may use your own) by changing
+`$template` in the config file.

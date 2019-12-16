@@ -104,6 +104,26 @@ class Alerts
 		// clear alerts
 		$this->session->remove($this->config->prefix . 'queue');
 		
+		// Check for flashdata (if configured)
+		if ($this->config->getflash)
+		{
+			if ($message = $this->session->getFlashdata('message'))
+			{
+				$alerts[] = ['class' => 'info', 'text' => $message];
+			}
+			elseif ($error = $this->session->getFlashdata('error'))
+			{
+				$alerts[] = ['class' => 'danger', 'text' => $error];
+			}
+			elseif ($errors = $this->session->getFlashdata('errors'))
+			{
+				foreach ($errors as $error)
+				{
+					$alerts[] = ['class' => 'danger', 'text' => $error];
+				}
+			}
+		}
+
 		if (empty($alerts))
 			return;
 		

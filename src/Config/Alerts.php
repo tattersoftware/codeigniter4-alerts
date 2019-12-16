@@ -9,4 +9,7 @@ class Alerts extends BaseConfig
 
 	// Template to use for HTML output
 	public $template = "Tatter\Alerts\Views\bootstrap";
+
+	// Whether to check session flashdata for common alert keys
+	public $getflash = true;
 }

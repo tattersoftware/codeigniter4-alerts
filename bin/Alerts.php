@@ -24,4 +24,7 @@ class Alerts extends \Tatter\Alerts\Config\Alerts
 		foundation - [https://foundation.zurb.com/sites/docs/callout.html#making-closable]
 */
 	public $template = "Tatter\Alerts\Views\bootstrap";
+
+	// Whether to check session flashdata for common alert keys
+	public $getflash = true;
 }

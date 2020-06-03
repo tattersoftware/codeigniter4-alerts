@@ -23,8 +23,8 @@
 ***/
 
 use CodeIgniter\Config\BaseConfig;
-use CodeIgniter\Config\Services;
 use CodeIgniter\View\RendererInterface;
+use Config\Services;
 use Tatter\Alerts\Exceptions\AlertsException;
 
 /*** CLASS ***/

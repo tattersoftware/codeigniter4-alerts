@@ -22,9 +22,10 @@
 *
 ***/
 
-use CodeIgniter\Config\BaseConfig;
+use CodeIgniter\Session\Session;
 use CodeIgniter\View\RendererInterface;
 use Config\Services;
+use Tatter\Alerts\Config\Alerts as AlertsConfig;
 use Tatter\Alerts\Exceptions\AlertsException;
 
 /*** CLASS ***/
@@ -34,7 +35,7 @@ class Alerts
 	/**
 	 * Our configuration instance.
 	 *
-	 * @var \Tatter\Alerts\Config\Alerts
+	 * @var AlertsConfig
 	 */
 	protected $config;
 
@@ -48,12 +49,12 @@ class Alerts
 	/**
 	 * The active user session, for loading and storing alerts.
 	 *
-	 * @var \CodeIgniter\Session\Session
+	 * @var Session
 	 */
 	protected $session;	
 
 	// initiate library, check for existing session
-	public function __construct(BaseConfig $config, RendererInterface $view = null)
+	public function __construct(AlertsConfig $config, RendererInterface $view = null)
 	{
 		// save configuration
 		$this->config = $config;

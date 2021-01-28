@@ -31,7 +31,7 @@ easily changed.
 ## Configuration (optional)
 
 The library's default behavior can be changed using its config file. Copy
-bin/Alerts.php to app/Config/Alerts.php and follow the instructions in the
+**examples/Alerts.php** to **app/Config/Alerts.php** and follow the instructions in the
 comments. If no config file is found the library will use its defaults.
 
 ## Usage

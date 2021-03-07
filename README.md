@@ -1,8 +1,11 @@
 # Tatter\Alerts
 Lightweight user alerts for CodeIgniter 4
 
-![Screenshot](https://github.com/tattersoftware/codeigniter4-alerts/blob/master/img/screenshot2.png)
+[![](https://github.com/tattersoftware/codeigniter4-alerts/workflows/PHPUnit/badge.svg)](https://github.com/tattersoftware/codeigniter4-alerts/actions?query=workflow%3A%22PHPUnit)
+[![](https://github.com/tattersoftware/codeigniter4-alerts/workflows/PHPStan/badge.svg)](https://github.com/tattersoftware/codeigniter4-alerts/actions?query=workflow%3A%22PHPStan)
+[![Coverage Status](https://coveralls.io/repos/github/tattersoftware/codeigniter4-alerts/badge.svg?branch=develop)](https://coveralls.io/github/tattersoftware/codeigniter4-alerts?branch=develop)
 
+![Screenshot](https://github.com/tattersoftware/codeigniter4-alerts/blob/master/img/screenshot2.png)
 
 ## Quick Start
 

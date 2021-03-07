@@ -24,7 +24,7 @@
 	},
 	"require-dev": {
 		"codeigniter4/codeigniter4": "dev-develop",
-		"tatter/tools": "^1.4"
+		"tatter/tools": "^1.6"
 	},
 	"autoload": {
 		"psr-4": {
@@ -50,6 +50,7 @@
 	"prefer-stable": true,
 	"scripts": {
 		"analyze": "phpstan analyze",
+		"mutate": "infection --threads=2 --skip-initial-tests --coverage=build/phpunit",
 		"style": "phpcbf --standard=./vendor/codeigniter4/codeigniter4-standard/CodeIgniter4 tests/ src/",
 		"test": "phpunit"
 	}

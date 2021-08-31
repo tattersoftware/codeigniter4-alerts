@@ -13,7 +13,6 @@ namespace Tatter\Alerts;
 
 use CodeIgniter\Session\Session;
 use CodeIgniter\View\RendererInterface;
-use Config\Services;
 use Tatter\Alerts\Config\Alerts as AlertsConfig;
 use Tatter\Alerts\Exceptions\AlertsException;
 
@@ -40,34 +39,43 @@ class Alerts
      */
     protected $session;
 
-    // initiate library, check for existing session
+    /**
+     * The session key to use for the queue.
+     *
+     * @var string
+     */
+    private $key;
+
+    /**
+     * Initiates the library, check for existing session.
+     *
+     * @param AlertsConfig           $config
+     * @param RendererInterface|null $view
+     */
     public function __construct(AlertsConfig $config, RendererInterface $view = null)
     {
-        // save configuration
-        $this->config = $config;
+        $this->config  = $config;
+        $this->session = service('session');
+        $this->view    = $view ?? service('renderer');
+        $this->key     = $this->config->prefix . 'queue';
 
-        // initiate the Session library
-        $this->session = Services::session();
-
-        // verify renderer
-        if ($view instanceof RendererInterface) {
-            $this->view = $view;
-        } else {
-            $this->view = Services::renderer();
-        }
-
-        // validations
+        // Validate the configuration
         if (empty($this->config->template)) {
             throw AlertsException::forInvalidTemplate('');
         }
-
-        $locator = Services::locator();
-        if (! $locator->locateFile($this->config->template)) {
+        if (! service('locator')->locateFile($this->config->template)) {
             throw AlertsException::forMissingTemplateView($this->config->template);
         }
     }
 
-    // add a new alert to the queue
+    /**
+     * Adds a new alert to the queue.
+     *
+     * @param string $class Class to apply, e.g. "info", "success"
+     * @param string $text  Text of the alert
+     *
+     * @return void
+     */
     public function add($class, $text)
     {
         $alert = [
@@ -75,25 +83,26 @@ class Alerts
             'text'  => $text,
         ];
 
-        // start the queue if it doesn't exist
-        if (! $this->session->has($this->config->prefix . 'queue')) {
-            $this->session->set($this->config->prefix . 'queue', [$alert]);
+        // Start the queue if it doesn't exist
+        if (! $this->session->has($this->key)) {
+            $this->session->set($this->key, [$alert]);
         }
-
-        // push onto the queue if it was already there
+        // Push onto the queue if it was already there
         else {
-            $this->session->push($this->config->prefix . 'queue', [$alert]);
+            $this->session->push($this->key, [$alert]);
         }
     }
 
-    // clears the queue and returns template formatted alerts
+    /**
+     * Clears the queue and returns template formatted alerts.
+     *
+     * @return string
+     */
     public function display()
     {
-        // get any alerts
-        $alerts = $this->session->get($this->config->prefix . 'queue') ?? [];
-
-        // clear alerts
-        $this->session->remove($this->config->prefix . 'queue');
+        // Retrieve and clear the queue
+        $alerts = $this->session->get($this->key) ?? [];
+        $this->session->remove($this->key);
 
         // Check for flashdata (if configured)
         if ($this->config->getflash) {
@@ -109,16 +118,21 @@ class Alerts
         }
 
         if (empty($alerts)) {
-            return;
+            return '';
         }
-        // render the specified view template
+
+        // Render the specified view template
         return $this->view->setVar('prefix', $this->config->prefix)
             ->setVar('alerts', $alerts)
             ->render($this->config->template);
     }
 
-    // returns default CSS as inline style sheet
-    // should be injected into <head>
+    /**
+     * Returns default CSS as inline style sheet to be
+     * included in the <head> tag.
+     *
+     * @return string
+     */
     public function css()
     {
         return $this->view->setVar('prefix', $this->config->prefix)->render('Tatter\Alerts\Views\css');

@@ -1,6 +1,6 @@
-# When a PR is opened or a push is made, perform
-# a static analysis check on the code using PHPStan.
-name: PHPStan
+# When a PR is opened or a push is made, perform an
+# architectural inspection on the code using Deptrac.
+name: Deptrac
 
 on:
   pull_request:
@@ -10,8 +10,8 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'composer.**'
-      - 'phpstan*'
-      - '.github/workflows/analyze.yml'
+      - 'depfile.yaml'
+      - '.github/workflows/inspect.yml'
   push:
     branches:
       - 'develop'
@@ -19,17 +19,13 @@ on:
       - 'src/**'
       - 'tests/**'
       - 'composer.**'
-      - 'phpstan*'
-      - '.github/workflows/analyze.yml'
+      - 'depfile.yaml'
+      - '.github/workflows/inspect.yml'
 
 jobs:
   build:
-    name: PHP ${{ matrix.php-versions }} Static Analysis
+    name: Architectural Inspection
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        php-versions: ['7.3', '7.4', '8.0']
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -37,9 +33,9 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-versions }}
-          tools: composer, pecl, phpunit
-          extensions: intl, json, mbstring, gd, mysqlnd, xdebug, xml, sqlite3
+          php-version: '8.0'
+          tools: composer, pecl, phive
+          extensions: intl, json, mbstring, xml
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -57,15 +53,15 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Create PHPStan cache directory
-        run: mkdir -p build/phpstan
+      - name: Create Deptrac cache directory
+        run: mkdir -p build/
 
-      - name: Cache PHPStan results
+      - name: Cache Deptrac results
         uses: actions/cache@v2
         with:
-          path: build/phpstan
-          key: ${{ runner.os }}-phpstan-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-phpstan-
+          path: build
+          key: ${{ runner.os }}-deptrac-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-deptrac-
 
       - name: Install dependencies (limited)
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name }}
@@ -77,5 +73,7 @@ jobs:
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
-      - name: Run static analysis
-        run: vendor/bin/phpstan analyze
+      - name: Run architectural inspection
+        run: |
+            sudo phive --no-progress install --global --trust-gpg-keys B8F640134AB1782E,A98E898BB53EB748 qossmic/deptrac
+            deptrac analyze --cache-file=build/deptrac.cache

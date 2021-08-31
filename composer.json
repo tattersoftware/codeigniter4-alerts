@@ -52,12 +52,14 @@
         "analyze": "phpstan analyze",
         "ci": [
             "Composer\\Config::disableProcessTimeout",
+            "@deduplicate",
             "@analyze",
             "@test",
             "@mutate",
             "@inspect",
             "@style"
         ],
+        "deduplicate": "phpcpd app/ src/",
         "inspect": "deptrac analyze --cache-file=build/deptrac.cache",
         "mutate": "infection --threads=2 --skip-initial-tests --coverage=build/phpunit",
         "style": "php-cs-fixer fix --verbose --ansi",

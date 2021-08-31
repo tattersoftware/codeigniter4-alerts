@@ -11,11 +11,7 @@ $finder = Finder::create()
     ->append([__FILE__]);
 
 // Remove overrides for incremental changes
-$overrides = [
-	'array_indentation' => false,
-	'braces'            => false,
-	'indentation_type'  => false,
-];
+$overrides = [];
 
 $options = [
     'finder'    => $finder,
@@ -24,7 +20,7 @@ $options = [
 
 /* Reenable after incremental changes are applied
 return Factory::create(new Standard(), $overrides, $options)->forLibrary(
-    'Library',
+    'Tatter Alerts',
     'Tatter Software',
     '',
     2021

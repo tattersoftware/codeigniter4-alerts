@@ -8,10 +8,10 @@ use Tatter\Alerts\Alerts;
  */
 final class ServiceTest extends CIUnitTestCase
 {
-	public function testServiceReturnsLibrary()
-	{
-		$result = service('alerts');
+    public function testServiceReturnsLibrary()
+    {
+        $result = service('alerts');
 
-		$this->assertInstanceOf(Alerts::class, $result);
-	}
+        $this->assertInstanceOf(Alerts::class, $result);
+    }
 }

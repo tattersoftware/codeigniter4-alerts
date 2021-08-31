@@ -9,11 +9,11 @@
  *
  */
 
-if (! function_exists('alert'))
-{
-	// add a new alert to the queue
-	function alert(string $class, string $text) {
-		$alerts = service('alerts');
-		$alerts->add($class, $text);
-	}
+if (! function_exists('alert')) {
+    // add a new alert to the queue
+    function alert(string $class, string $text)
+    {
+        $alerts = service('alerts');
+        $alerts->add($class, $text);
+    }
 }

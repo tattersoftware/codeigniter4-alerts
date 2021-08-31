@@ -14,19 +14,19 @@ namespace Config;
 
 class Alerts extends \Tatter\Alerts\Config\Alerts
 {
-	// prefix for SESSION variables and HTML classes, to prevent collision
-	public $prefix = 'alerts-';
+    // prefix for SESSION variables and HTML classes, to prevent collision
+    public $prefix = 'alerts-';
 
-/*
-	Template to use for HTML output
-	There must be a corresponding view file for the path/namespace provided
-	Native support for:
-		basic - a minimalist layout internal to this library
-		bootstrap (default) - [https://getbootstrap.com/docs/4.0/components/alerts/#dismissing]
-		foundation - [https://foundation.zurb.com/sites/docs/callout.html#making-closable]
- */
-	public $template = 'Tatter\\Alerts\\Views\\bootstrap';
+    /*
+        Template to use for HTML output
+        There must be a corresponding view file for the path/namespace provided
+        Native support for:
+            basic - a minimalist layout internal to this library
+            bootstrap (default) - [https://getbootstrap.com/docs/4.0/components/alerts/#dismissing]
+            foundation - [https://foundation.zurb.com/sites/docs/callout.html#making-closable]
+     */
+    public $template = 'Tatter\\Alerts\\Views\\bootstrap';
 
-	// Whether to check session flashdata for common alert keys
-	public $getflash = true;
+    // Whether to check session flashdata for common alert keys
+    public $getflash = true;
 }

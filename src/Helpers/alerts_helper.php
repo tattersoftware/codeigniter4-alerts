@@ -1,12 +1,12 @@
 <?php
 
-/*
+/**
+ * This file is part of Tatter Alerts.
  *
- * This file contains the optional wrapper helper functions to make calling the library easier.
- * Recommended usage:
- *	1. Load the helper with `helper("alerts")`
- *	2. Use `alert($class, $text) to add a new user alert
+ * (c) 2021 Tatter Software
  *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
  */
 
 if (! function_exists('alert')) {

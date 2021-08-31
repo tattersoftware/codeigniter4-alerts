@@ -9,13 +9,13 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-use CodeIgniter\Test\CIUnitTestCase;
 use Tatter\Alerts\Alerts;
+use Tests\Support\AlertsTestCase;
 
 /**
  * @internal
  */
-final class ServiceTest extends CIUnitTestCase
+final class ServiceTest extends AlertsTestCase
 {
     public function testServiceReturnsLibrary()
     {

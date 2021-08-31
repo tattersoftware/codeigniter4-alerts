@@ -3,7 +3,10 @@
 use CodeIgniter\Test\CIUnitTestCase;
 use Tatter\Alerts\Alerts;
 
-class ServiceTest extends CIUnitTestCase
+/**
+ * @internal
+ */
+final class ServiceTest extends CIUnitTestCase
 {
 	public function testServiceReturnsLibrary()
 	{

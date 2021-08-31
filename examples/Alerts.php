@@ -1,19 +1,21 @@
-<?php namespace Config;
+<?php
 
-/***
-*
-* This file contains example values to change the default library behavior.
-* Recommended usage:
-*	1. Copy the file to app/Config/Alerts.php
-*	2. Set any override variables
-*	3. Remove any lines to fallback to library defaults
-*
-***/
+namespace Config;
+
+/*
+ *
+ * This file contains example values to change the default library behavior.
+ * Recommended usage:
+ *	1. Copy the file to app/Config/Alerts.php
+ *	2. Set any override variables
+ *	3. Remove any lines to fallback to library defaults
+ *
+ */
 
 class Alerts extends \Tatter\Alerts\Config\Alerts
 {
 	// prefix for SESSION variables and HTML classes, to prevent collision
-	public $prefix = "alerts-";	
+	public $prefix = 'alerts-';
 
 /*
 	Template to use for HTML output
@@ -22,8 +24,8 @@ class Alerts extends \Tatter\Alerts\Config\Alerts
 		basic - a minimalist layout internal to this library
 		bootstrap (default) - [https://getbootstrap.com/docs/4.0/components/alerts/#dismissing]
 		foundation - [https://foundation.zurb.com/sites/docs/callout.html#making-closable]
-*/
-	public $template = "Tatter\Alerts\Views\bootstrap";
+ */
+	public $template = 'Tatter\\Alerts\\Views\\bootstrap';
 
 	// Whether to check session flashdata for common alert keys
 	public $getflash = true;

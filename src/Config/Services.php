@@ -1,4 +1,6 @@
-<?php namespace Tatter\Alerts\Config;
+<?php
+
+namespace Tatter\Alerts\Config;
 
 use CodeIgniter\View\RendererInterface;
 use Config\Services as BaseServices;

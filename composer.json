@@ -24,7 +24,7 @@
     },
     "require-dev": {
         "codeigniter4/codeigniter4": "dev-develop",
-        "tatter/tools": "^1.11"
+        "tatter/tools": "^1.15"
     },
     "autoload": {
         "psr-4": {
@@ -55,14 +55,13 @@
             "@deduplicate",
             "@analyze",
             "@test",
-            "@mutate",
             "@inspect",
             "@style"
         ],
         "deduplicate": "phpcpd app/ src/",
         "inspect": "deptrac analyze --cache-file=build/deptrac.cache",
         "mutate": "infection --threads=2 --skip-initial-tests --coverage=build/phpunit",
-        "style": "php-cs-fixer fix --verbose --ansi",
+        "style": "php-cs-fixer fix --verbose --ansi --using-cache=no",
         "test": "phpunit"
     }
 }

@@ -7,12 +7,12 @@ use CodeIgniter\Exceptions\FrameworkException;
 
 class AlertsException extends FrameworkException implements ExceptionInterface
 {
-    public static function forInvalidTemplate(string $template = null)
+    public static function forInvalidTemplate(?string $template = null)
     {
         return new static(lang('Alerts.invalidTemplate', [$template ?? '']));
     }
 
-    public static function forMissingTemplateView(string $template = null)
+    public static function forMissingTemplateView(?string $template = null)
     {
         return new static(lang('Alerts.missingTemplateView', [$template ?? '']));
     }

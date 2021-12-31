@@ -10,12 +10,7 @@ $finder = Finder::create()
     ->exclude('build')
     ->append([__FILE__]);
 
-// Remove overrides for incremental changes
-$overrides = [
-	'array_indentation' => false,
-	'braces'            => false,
-	'indentation_type'  => false,
-];
+$overrides = [];
 
 $options = [
     'finder'    => $finder,

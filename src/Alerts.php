@@ -39,11 +39,8 @@ class Alerts
 
     /**
      * Initiates the library, check for existing session.
-     *
-     * @param AlertsConfig           $config
-     * @param RendererInterface|null $view
      */
-    public function __construct(AlertsConfig $config, RendererInterface $view = null)
+    public function __construct(AlertsConfig $config, ?RendererInterface $view = null)
     {
         $this->config  = $config;
         $this->session = service('session');

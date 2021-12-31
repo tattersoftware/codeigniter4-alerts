@@ -1,14 +1,5 @@
 <?php
 
-/**
- * This file is part of Tatter Alerts.
- *
- * (c) 2021 Tatter Software
- *
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
- */
-
 namespace Tatter\Alerts;
 
 use CodeIgniter\Session\Session;
@@ -48,11 +39,8 @@ class Alerts
 
     /**
      * Initiates the library, check for existing session.
-     *
-     * @param AlertsConfig           $config
-     * @param RendererInterface|null $view
      */
-    public function __construct(AlertsConfig $config, RendererInterface $view = null)
+    public function __construct(AlertsConfig $config, ?RendererInterface $view = null)
     {
         $this->config  = $config;
         $this->session = service('session');

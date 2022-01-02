@@ -5,9 +5,9 @@
 
 > Note: This is a complete refactor! Please be sure to read the docs carefully before upgrading.
 
-* All handling is now routed through `AlertsFilter` - read the docs on setting up the Filter
+* All handling is now routed through `AlertsFilter` - read the docs on how to enable the Filter and add the token to your layouts
 * Related, the service, exceptions, and language files have been removed
-* Alerts no longer use session prefixes but are matched to the Config `$classes` - beware of session collision
+* `Alerts` no longer uses session prefixes but matches to the Config `$classes` - beware of session collision
 * The view templates no longer include a wrapper; if you would like consistent behavior then put your token in an `<aside>` tag:
 ```html
     <aside id="alerts-wrapper">

@@ -21,7 +21,7 @@ if (! function_exists('alert')) {
 
         // If no key exists the set and quit
         if (! $session->has($key)) {
-            $session->set($key, $content);
+            $session->setFlashdata($key, $content);
 
             return;
         }
@@ -31,12 +31,13 @@ if (! function_exists('alert')) {
 
         if (is_array($value)) {
             $session->push($key, $content);
+            $session->markAsFlashdata($key);
 
             return;
         }
 
         if (is_string($value)) {
-            $session->set($key, array_merge([$value], $content));
+            $session->setFlashdata($key, array_merge([$value], $content));
 
             return;
         }

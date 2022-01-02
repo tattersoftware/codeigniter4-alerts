@@ -21,19 +21,25 @@ class Alerts extends BaseConfig
      * @var array<string,string>
      */
     public $classes = [
+        // Bootstrap classes
         'primary'   => 'primary',
-        'message'   => 'primary',
         'secondary' => 'secondary',
-        'notice'    => 'secondary',
         'success'   => 'success',
         'danger'    => 'danger',
+        'warning'   => 'warning',
+        'info'      => 'info',
+
+        // Additional log levels
+        'message'   => 'primary',
+        'notice'    => 'secondary',
         'error'     => 'danger',
-        'errors'    => 'danger',
         'critical'  => 'danger',
         'emergency' => 'danger',
-        'warning'   => 'warning',
         'alert'     => 'warning',
-        'info'      => 'info',
         'debug'     => 'info',
+
+        // Common framework keys
+        'messages' => 'primary',
+        'errors'   => 'danger',
     ];
 }

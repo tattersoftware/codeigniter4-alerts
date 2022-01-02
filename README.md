@@ -55,7 +55,7 @@ And of course you can add your own. The view file will be passed an array of tup
 `$alerts`, with each tuple in the format `[string $class, string $content]`. Your view file
 should unpack each tuple:
 ```php
-foreach ($alerst as $alert) {
+foreach ($alerts as $alert) {
     [$class, $content] = $alert;
 ```
 ... then output the alert `$content` wrapped in some appropriate HTML tags with whatever

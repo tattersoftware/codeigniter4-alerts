@@ -7,23 +7,33 @@ use CodeIgniter\Config\BaseConfig;
 class Alerts extends BaseConfig
 {
     /**
-     * Prefix for SESSION variables and HTML classes, to prevent collision.
-     *
-     * @var string
-     */
-    public $prefix = 'alerts-';
-
-    /**
      * Template to use for HTML output.
      *
      * @var string
      */
-    public $template = 'Tatter\\Alerts\\Views\\bootstrap';
+    public $template = 'Tatter\Alerts\Views\Bootstrap4';
 
     /**
-     * Whether to check session flashdata for common alert keys.
+     * Mapping of Session keys to their CSS classes.
+     * Note: Some templates may add prefixes to the class,
+     * like Bootstrap "alert-{$class}".
      *
-     * @var bool
+     * @var array<string,string>
      */
-    public $getflash = true;
+    public $classes = [
+        'primary'   => 'primary',
+        'message'   => 'primary',
+        'secondary' => 'secondary',
+        'notice'    => 'secondary',
+        'success'   => 'success',
+        'danger'    => 'danger',
+        'error'     => 'danger',
+        'errors'    => 'danger',
+        'critical'  => 'danger',
+        'emergency' => 'danger',
+        'warning'   => 'warning',
+        'alert'     => 'warning',
+        'info'      => 'info',
+        'debug'     => 'info',
+    ];
 }

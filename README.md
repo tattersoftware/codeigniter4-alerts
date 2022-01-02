@@ -23,12 +23,14 @@ Provides out-of-the-box user alerts for CodeIgniter 4
 
 Install easily via Composer to take advantage of CodeIgniter 4's autoloading capabilities
 and always be up-to-date:
-* `> composer require tatter/alerts`
+```bash
+composer require tatter/alerts
+```
 
 Or, install manually by downloading the source files and adding the directory to
 `app/Config/Autoload.php`.
 
-Note: The default display template expects [Bootstrap4](https://getbootstrap.com) but is
+> Note: The default display template expects [Bootstrap](https://getbootstrap.com) but is
 easily changed.
 
 ## Configuration (optional)
@@ -37,18 +39,18 @@ The library's default behavior can be changed using its config file. Copy
 **examples/Alerts.php** to **app/Config/Alerts.php** and follow the instructions in the
 comments. If no config file is found the library will use its defaults.
 
+### Styling
+
+By default alerts will be displayed with classes for Bootstrap (not included).
+However, styles can be set to use other frameworks (or you may use your own) by changing
+the `$template` property in the Config file.
+
 ## Usage
 
 If installed correctly CodeIgniter 4 will detect and autoload the library, service, helper,
 and config. Initialize the helper if you want the convenience wrapper function:
-`helper('tatter\alerts');`
+`helper('alerts');`
 
 Then use the helper function `alert($class, $text)` to set an alert for the user's next
 view. Use class methods `$alerts->css()` and `$alerts->display()` to retrieve the styling
 and HTML for the alerts.
-
-## Styles
-
-By default alerts will be displayed with classes for Bootstrap (not included).
-However, styles can be set to use other toolkits (or you may use your own) by changing
-`$template` in the config file.

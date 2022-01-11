@@ -42,8 +42,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/codeigniter4/CodeIgniter4",
-            "no-api": true
+            "url": "https://github.com/codeigniter4/CodeIgniter4.git"
         }
     ],
     "minimum-stability": "dev",

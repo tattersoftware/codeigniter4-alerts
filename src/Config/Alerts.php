@@ -8,10 +8,8 @@ class Alerts extends BaseConfig
 {
     /**
      * Template to use for HTML output.
-     *
-     * @var string
      */
-    public $template = 'Tatter\Alerts\Views\Bootstrap4';
+    public string $template = 'Tatter\Alerts\Views\Bootstrap4';
 
     /**
      * Mapping of Session keys to their CSS classes.
@@ -20,7 +18,7 @@ class Alerts extends BaseConfig
      *
      * @var array<string,string>
      */
-    public $classes = [
+    public array $classes = [
         // Bootstrap classes
         'primary'   => 'primary',
         'secondary' => 'secondary',

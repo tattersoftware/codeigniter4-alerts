@@ -44,7 +44,7 @@ class Alerts extends BaseCollector
      *
      * @var array<string[]>
      */
-    protected $alerts;
+    protected array $alerts;
 
     //--------------------------------------------------------------------
 

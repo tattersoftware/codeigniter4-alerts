@@ -12,10 +12,7 @@ final class FilterTest extends TestCase
 {
     use FilterTestTrait;
 
-    /**
-     * @var string
-     */
-    private $body = <<<'EOD'
+    private string $body = <<<'EOD'
         <html>
         <head>
         	<title>Test</title>

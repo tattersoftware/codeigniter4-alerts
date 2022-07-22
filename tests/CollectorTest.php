@@ -8,10 +8,7 @@ use Tests\Support\TestCase;
  */
 final class CollectorTest extends TestCase
 {
-    /**
-     * @var Alerts
-     */
-    protected $collector;
+    protected Alerts $collector;
 
     protected function setUp(): void
     {

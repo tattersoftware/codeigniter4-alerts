@@ -24,8 +24,7 @@ class AlertsFilter implements FilterInterface
     public static function gather(AlertsConfig $config): array
     {
         // Gather alerts from the Session
-        $session = service('session');
-        $alerts  = [];
+        $alerts = [];
 
         foreach ($config->classes as $key => $class) {
             $content = session($key);

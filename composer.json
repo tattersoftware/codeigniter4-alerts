@@ -1,7 +1,8 @@
 {
     "name": "tatter/alerts",
-    "type": "library",
     "description": "Lightweight user alerts for CodeIgniter 4",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "codeigniter",
         "codeigniter4",
@@ -9,8 +10,6 @@
         "dialogs",
         "messages"
     ],
-    "homepage": "https://github.com/tattersoftware/codeigniter4-alerts",
-    "license": "MIT",
     "authors": [
         {
             "name": "Matthew Gatner",
@@ -19,13 +18,16 @@
             "role": "Developer"
         }
     ],
+    "homepage": "https://github.com/tattersoftware/codeigniter4-alerts",
     "require": {
-        "php": "^7.3 || ^8.0"
+        "php": "^7.4 || ^8.0"
     },
     "require-dev": {
-        "codeigniter4/codeigniter4": "dev-develop",
-        "tatter/tools": "^1.15"
+        "codeigniter4/framework": "^4.1",
+        "tatter/tools": "^2.0"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Tatter\\Alerts\\": "src"
@@ -39,20 +41,22 @@
             "Tests\\Support\\": "tests/_support"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/codeigniter4/CodeIgniter4.git"
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
         }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    },
     "scripts": {
-        "analyze": "phpstan analyze",
+        "analyze": [
+            "phpstan analyze",
+            "psalm",
+            "rector process --dry-run"
+        ],
         "ci": [
             "Composer\\Config::disableProcessTimeout",
             "@deduplicate",
             "@analyze",
+            "@composer normalize --dry-run",
             "@test",
             "@inspect",
             "@style"
@@ -60,6 +64,7 @@
         "deduplicate": "phpcpd app/ src/",
         "inspect": "deptrac analyze --cache-file=build/deptrac.cache",
         "mutate": "infection --threads=2 --skip-initial-tests --coverage=build/phpunit",
+        "retool": "retool",
         "style": "php-cs-fixer fix --verbose --ansi --using-cache=no",
         "test": "phpunit"
     }

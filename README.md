@@ -115,7 +115,7 @@ if (! $fruit = $this->getPost('fruit')) {
 }
 ```
 
-### Alerts Helper
+### Helper
 
 This library also includes a helper function, which has the added benefit of merging values
 and checking for collision. Initialize the helper to us the convenience wrapper function:
@@ -126,6 +126,12 @@ alert('error', 'You must accept the terms of service to continue.');
 
 The helper adds a few features (like collision detection and alert merging) but may throw
 exceptions in some circumstances - read the **Collision** section below.
+
+### Collector
+
+There is a [Toolbar Collector](https://www.codeigniter.com/user_guide/testing/debugging.html#creating-custom-collectors)
+bundled with this library to ease development and integration. It is enabled by default and
+should appear in the development environment whenever the Toolbar is active.
 
 ## Warnings
 

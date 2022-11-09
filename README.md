@@ -46,9 +46,8 @@ The Config file consists of two properties.
 
 The `$template` property sets the path to the View file which will be used to format your
 alerts. The default template has HTML tags and classes designed for use with
-[Bootstrap 5 Alerts](https://getbootstrap.com/docs/5.2/components/alerts/), but the library
+[Bootstrap 4 Alerts](https://getbootstrap.com/docs/4.6/components/alerts/), but the library
 includes additional templates for you to choose:
-* `Tatter\Alerts\Views\Bootstrap4`: Compatible with the Bootstrap 4 CSS Framework
 * `Tatter\Alerts\Views\Foundation`: Compatible with the Foundation CSS Framework
 * `Tatter\Alerts\Views\Vanilla`: A framework-free implementation, with classes available for your own CSS styling
 

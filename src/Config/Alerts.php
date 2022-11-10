@@ -9,7 +9,7 @@ class Alerts extends BaseConfig
     /**
      * Template to use for HTML output.
      */
-    public string $template = 'Tatter\Alerts\Views\Bootstrap4';
+    public string $template = 'Tatter\Alerts\Views\Bootstrap5';
 
     /**
      * Mapping of Session keys to their CSS classes.

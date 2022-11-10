@@ -46,7 +46,7 @@ class Alerts extends BaseCollector
      */
     protected array $alerts;
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * Preloads alerts so they are only gathered once.
@@ -56,7 +56,7 @@ class Alerts extends BaseCollector
         $this->alerts = AlertsFilter::gather(config('Alerts'));
     }
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * Returns the data of this collector to be formatted in the toolbar
@@ -74,7 +74,7 @@ class Alerts extends BaseCollector
         return $html;
     }
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * Gets the "badge" value for the button.
@@ -84,7 +84,7 @@ class Alerts extends BaseCollector
         return count($this->alerts);
     }
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * Display the icon.

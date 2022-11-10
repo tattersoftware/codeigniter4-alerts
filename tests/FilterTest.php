@@ -51,6 +51,8 @@ final class FilterTest extends TestCase
 
     public function testFilter()
     {
+        config('Alerts')->template = 'Tatter\Alerts\Views\Bootstrap4';
+
         $expected = <<<'EOD'
             <html>
             <head>

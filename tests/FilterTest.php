@@ -124,7 +124,7 @@ final class FilterTest extends TestCase
 
     public function testRedirect()
     {
-        $this->response = redirect('');
+        $this->response = redirect('/');
         $caller         = $this->getFilterCaller(AlertsFilter::class, 'after');
 
         $this->assertNull($caller());
